@@ -1,0 +1,342 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:white;
+    background:#0f172a;
+}
+
+/* Animated Background */
+
+.background{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background:
+    radial-gradient(circle at 20% 20%, #06b6d4 0%, transparent 30%),
+    radial-gradient(circle at 80% 30%, #8b5cf6 0%, transparent 30%),
+    radial-gradient(circle at 50% 80%, #ec4899 0%, transparent 35%),
+    linear-gradient(135deg,#0f172a,#111827,#1e293b);
+
+    animation:aurora 12s ease-in-out infinite alternate;
+
+    z-index:-1;
+}
+
+@keyframes aurora{
+
+    0%{
+        transform:scale(1) rotate(0deg);
+    }
+
+    100%{
+        transform:scale(1.15) rotate(4deg);
+    }
+}
+
+/* Main Container */
+
+.container{
+
+    width:90%;
+    max-width:550px;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.4),
+    0 0 40px rgba(139,92,246,0.25);
+
+    text-align:center;
+}
+
+/* Heading */
+
+h1{
+
+    font-size:2.5rem;
+
+    margin-bottom:20px;
+
+    background:linear-gradient(
+    90deg,
+    #06b6d4,
+    #8b5cf6,
+    #ec4899);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+/* Mode Buttons */
+
+.mode-select{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+    flex-wrap:wrap;
+}
+
+.mode-select button{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+    135deg,
+    #06b6d4,
+    #8b5cf6);
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.mode-select button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 20px rgba(139,92,246,0.6);
+}
+
+/* Scoreboard */
+
+.scoreboard{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    margin:20px 0;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,0.05);
+
+    font-size:18px;
+
+    font-weight:600;
+}
+
+/* Status */
+
+#status{
+
+    margin:15px 0;
+
+    font-size:1.2rem;
+
+    color:#f8fafc;
+}
+
+/* Game Board */
+
+.board{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+    margin:25px 0;
+}
+
+/* Cells */
+
+.cell{
+
+    aspect-ratio:1;
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:3rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+}
+
+.cell:hover{
+
+    transform:translateY(-5px);
+
+    background:rgba(255,255,255,0.18);
+
+    box-shadow:
+    0 0 20px rgba(6,182,212,0.5);
+}
+
+/* Winner Cells */
+
+.winner{
+
+    background:linear-gradient(
+    135deg,
+    #22c55e,
+    #16a34a) !important;
+
+    color:white;
+
+    box-shadow:
+    0 0 25px #22c55e;
+}
+
+/* Restart Button */
+
+#restartBtn{
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+    135deg,
+    #ec4899,
+    #8b5cf6);
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+#restartBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 20px rgba(236,72,153,0.5);
+}
+
+/* Responsive Design */
+
+@media(max-width:768px){
+
+    .container{
+
+        width:95%;
+
+        padding:25px;
+    }
+
+    h1{
+
+        font-size:2rem;
+    }
+
+    .cell{
+
+        font-size:2.5rem;
+    }
+}
+
+@media(max-width:480px){
+
+    h1{
+
+        font-size:1.7rem;
+    }
+
+    .scoreboard{
+
+        flex-direction:column;
+
+        gap:10px;
+    }
+
+    .cell{
+
+        font-size:2rem;
+    }
+
+    .mode-select{
+
+        flex-direction:column;
+    }
+
+    .mode-select button{
+
+        width:100%;
+    }
+
+    #restartBtn{
+
+        width:100%;
+    }
+}
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-image:
+    linear-gradient(
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)),
+    url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    color:white;
+}
